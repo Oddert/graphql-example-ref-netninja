@@ -8,8 +8,5 @@
   },
   "author": "Robyn Veitch",
   "license": "ISC",
-  "dependencies": {
-    "dotenv": "^6.1.0",
-    "mongoose": "^5.3.4"
-  }
+  "dependencies": {}
 }

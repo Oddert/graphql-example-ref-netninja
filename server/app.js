@@ -7,6 +7,9 @@ const express       = require('express')
 const schema        = require('./schema/schema')
 
 mongoose.connect(process.env.DATABASE)
+mongoose.connection.once('open', () => {
+  console.log('DB connection open...')
+})
 
 app.use('/graphql', graphqlHTTP({
   schema,
