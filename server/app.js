@@ -3,6 +3,7 @@ const express       = require('express')
     , app           = express()
     , mongoose      = require('mongoose')
     , dotenv        = require('dotenv').config()
+    , cors          = require('cors')
 
 const schema        = require('./schema/schema')
 
@@ -10,6 +11,8 @@ mongoose.connect(process.env.DATABASE)
 mongoose.connection.once('open', () => {
   console.log('DB connection open...')
 })
+
+app.use(cors())
 
 app.use('/graphql', graphqlHTTP({
   schema,
