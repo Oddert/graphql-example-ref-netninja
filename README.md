@@ -2,8 +2,8 @@
 
 > This repository is a direct build of a tutorial by [NetNinja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg), put on github for personal reference.
 
-<!-- ## Live Demo -->
-<!-- [https://exclusive-sable-shell.glitch.me/](https://exclusive-sable-shell.glitch.me/) -->
+## Live Demo
+[https://lead-rune-cord.glitch.me/](https://lead-rune-cord.glitch.me/)
 
 ## Installation
 ```
@@ -14,22 +14,15 @@ $ npm run install-client
 ```
 
 ## Scripts
-| script | command                                        | action
-|--------|------------------------------------------------|------------------------------------------------|
-| start  | node app.js                                    | runs the server                                |
-| dev | nodemon app.js                                 | runs the server with auto restart              |
-
-# Routes
-| Route  | Mathod | Params  | Returns
-|--------|-------------------|----|----|
-| /        | GET |  | A basic html page to interact with the API |
-| /:number | GET | number: {Number} - The number to query | A redirect to the url associated with that number in the database |
-| /new/*   | GET | *: {String} - A URL endpoint to shorten | A Number representing this url in the database |
-
-
-
-<!-- _Please Note_
-
-This app was developed on an older version of MongoDB which can be used by running `oldApp.js`
-
-The version for MongoDB 3.0.7 is `app.js` and is set to auto-run on glitch.com -->
+| script | command | action
+|--------|---------|----------|
+start | npm run server-start | runs the server for production
+install-server | cd server && npm i | installs server dependencies
+install-client | cd client && npm i | installs client development environment dependencies
+client-dev | cd client && npm run start | runs the client development environment
+client-build | cd client && npm run build | creates a client build
+server-dev | cd server && npm run dev | starts the server with auto restart for development
+server-start | cd server && npm run start | starts the server
+deploy | cp -r client/build server/ | moves the current client build to the server
+build | npm run client-build && npm run deploy | creates a build and deploys to the server
+dev | concurrently "npm run server-dev" "npm run client-dev" | runs the server in development mode and the clietn development environment
